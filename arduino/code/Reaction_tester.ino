@@ -15,8 +15,8 @@ long stop2;
 long reaction1;
 long reaction2;
 
-void setup();
-{Serial.begin(115200):
+void setup()
+{Serial.begin(115200);
 pinMode(led, OUTPUT);
 pinMode(btn1, INPUT_PULLUP);
 
@@ -31,14 +31,14 @@ void loop()
 { Serial.println("Get Ready Now......");
 
 stop1=0;
-stop2=0
+stop2=0;
 
 delay(random(2000,5000)); //cause a random delay each time between 2 sec to 5 sec
 
 digitalWrite(led,HIGH); //starts timer when the led glows
 start=millis();
 
-while (stop1 ==0
+while (stop1 ==0 ||
   stop2==0){
 if (digitalRead(btn1)==LOW && stop1==0)
 {stop1 = millis(); }
@@ -51,7 +51,7 @@ if (digitalRead(btn2)==LOW &&stop2==0)
 reaction1=stop1-start;
 reaction2=stop2-start;
 
-Serial.println("* Results Gotten *")
+Serial.println("* Results Gotten *");
   Serial.print("Player 1 : "); Serial.print(reaction1); Serial.println(" ms");
 Serial.print("Player 2 : "); Serial.print(reaction2); Serial.println(" ms");
 
