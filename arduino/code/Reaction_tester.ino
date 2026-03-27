@@ -25,7 +25,7 @@ randomSeed(analogRead(0)); // so random delay time changes each turn by getting 
 Serial.println("Reaction Competition");
 Serial.println("Wait for the LED to glow ... first clicker WINS!!!");
 
-pinMode(btn2, INPUT_PULLUP);
+pinMode(btn2, INPUT_PULLUP); }
 
 void loop()
 { Serial.println("Get Ready Now......");
