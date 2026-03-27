@@ -18,7 +18,7 @@ long reaction2;
 void setup()
 {Serial.begin(115200);
 pinMode(led, OUTPUT);
-pinMode(btn1, INPUT_PULLUP);
+pinMode(btn1, INPUT_PULLUP); //pullup used to eliminate falsi triggers from electromagnetic interference (EMI) as the button is a floating pin
 
 randomSeed(analogRead(0)); // so random delay time changes each turn by getting electrical noise as its a floating pin
 
@@ -40,30 +40,30 @@ start=millis();
 
 while (stop1 ==0 ||
   stop2==0){
-if (digitalRead(btn1)==LOW && stop1==0)
+if (digitalRead(btn1)==LOW && stop1==0) 
 {stop1 = millis(); }
 
 if (digitalRead(btn2)==LOW &&stop2==0)
 {stop2=millis();} }
 
-  digitalWrite(led, LOW);
+  digitalWrite(led, LOW); //led turns off after both buttons are clicked
 
-reaction1=stop1-start;
+reaction1=stop1-start; //calculation to find reaction time of each player
 reaction2=stop2-start;
 
-Serial.println("* Results Gotten *");
+Serial.println("* Results Gotten *"); //times printed on conputer
   Serial.print("Player 1 : "); Serial.print(reaction1); Serial.println(" ms");
 Serial.print("Player 2 : "); Serial.print(reaction2); Serial.println(" ms");
 
-if (reaction1<reaction2)
-{Serial.println("Player 1 was WON!");
+if (reaction1<reaction2) //lesser reaction times wins
+{Serial.println("Player 1 WON!");
 pl1score++; }
 
 else if(reaction1>reaction2)
-{Serial.println("Player 2 was WON");
+{Serial.println("Player 2 WON");
 pl2score++; } 
 
-else
+else //if times are exactly equal
 {Serial.println("both players have TIED");}
 
 Serial.print("Score- Player 1 : "); Serial.print(pl1score);
