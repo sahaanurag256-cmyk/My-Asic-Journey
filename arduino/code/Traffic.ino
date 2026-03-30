@@ -55,7 +55,7 @@ digitalWrite(red, HIGH);//red is on (stop)
     lcd.print("CROSS NOW!!!");
     
 digitalWrite(blue,HIGH); //light glows
- tone(buzzer, 1500); //going to beep at 1500 hz
+ tone(buzzer,800); //going to beep at 1500 hz
  delay(500);
 
   lcd.setCursor (0,1); //erases only bottom row so man blinks and stop hand remains
